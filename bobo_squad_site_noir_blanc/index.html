@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOBO SQUAD — La bonne humeur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">B</div>
+        <div>
+          <strong>BOBO</strong>
+          <span>SQUAD</span>
+        </div>
+      </div>
+
+      <nav>
+        <a class="active" href="#accueil">🏠 <span>Accueil</span></a>
+        <a href="#apropos">✨ <span>À propos</span></a>
+        <a href="#photos">📸 <span>Photos</span></a>
+        <a href="#amis">👥 <span>La Squad</span></a>
+        <a href="#evenements">🎉 <span>Événements</span></a>
+      </nav>
+
+      <div class="side-card">
+        <div class="mini-sun">☀️</div>
+        <h3>Bonne humeur activée !</h3>
+        <p>Un endroit pour partager, rire et profiter des bons moments.</p>
+      </div>
+
+      <footer>© 2026 BOBO SQUAD</footer>
+    </aside>
+
+    <main class="content" id="accueil">
+      <section class="profile-card">
+        <div class="cover">
+          <img src="bobo1.jpg" alt="BOBO SQUAD">
+          <div class="cover-shine"></div>
+        </div>
+
+        <div class="profile-main">
+          <div class="avatar">
+            <img src="bobo.jpg" alt="Photo de la BOBO SQUAD">
+          </div>
+
+          <div class="profile-info">
+            <div class="title-row">
+              <h1>BOBO SQUAD <span>✓</span></h1>
+              <div class="actions">
+                <button class="btn ghost" onclick="toggleFollow(this)">♡ Suivre</button>
+                <button class="btn primary" onclick="showMessage()">💬 Message</button>
+              </div>
+            </div>
+            <p class="followers">5 followers · 4 suivi(e)s</p>
+            <p class="tagline">"The game never end" 🎮</p>
+            <p class="location">📍 Centre de loisirs</p>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <a class="selected" href="#accueil">Tout</a>
+          <a href="#apropos">À propos</a>
+          <a href="#amis">Followers</a>
+          <a href="#photos">Photos</a>
+          <a href="#mentions">Mentions</a>
+          <a href="#plus">Plus ▾</a>
+        </div>
+      </section>
+
+      <section class="welcome" id="apropos">
+        <div>
+          <span class="eyebrow">🌈 BIENVENUE DANS LA SQUAD</span>
+          <h2>Du plaisir, des souvenirs<br>et beaucoup de sourires.</h2>
+          <p>BOBO SQUAD, c’est une bande qui aime profiter du moment, créer des souvenirs et garder une énergie positive.</p>
+        </div>
+        <div class="smile">😎</div>
+      </section>
+
+      <section class="grid">
+        <div class="column">
+          <article class="post">
+            <div class="post-head">
+              <div class="post-avatar"><img src="cover.jpg" alt=""></div>
+              <div><strong>BOBO SQUAD</strong><small>Il y a 2 h · 🌍</small></div>
+              <button class="dots">•••</button>
+            </div>
+            <p class="post-text">Une journée simple, une bonne équipe et des souvenirs qui restent. 💛</p>
+            <div class="post-image">
+              <img src="cover.jpg" alt="La BOBO SQUAD en extérieur">
+              <div class="photo-label">GOOD VIBES ONLY ✨</div>
+            </div>
+            <div class="post-stats"><span>❤️ 24</span><span>💬 7 commentaires</span></div>
+            <div class="post-actions">
+              <button onclick="likePost(this)">♡ J'aime</button>
+              <button>💬 Commenter</button>
+              <button>↗ Partager</button>
+            </div>
+          </article>
+
+          <article class="post" id="photos">
+            <div class="post-head">
+              <div class="post-avatar">📸</div>
+              <div><strong>Nos moments</strong><small>Galerie BOBO SQUAD</small></div>
+            </div>
+            <div class="photo-grid">
+              <img src="cover.jpg" alt="">
+              <img src="cover.jpg" alt="">
+              <img src="cover.jpg" alt="">
+            </div>
+          </article>
+        </div>
+
+        <aside class="right-column">
+          <div class="info-card" id="amis">
+            <h3>🌟 La Squad</h3>
+            <div class="members">
+              <div class="member"><span>🧑🏾</span><b>BOBO</b><small>Good vibes</small></div>
+              <div class="member"><span>🧑🏽</span><b>Squad</b><small>Always ready</small></div>
+              <div class="member"><span>🧑🏿</span><b>Friends</b><small>Best moments</small></div>
+            </div>
+          </div>
+
+          <div class="info-card" id="evenements">
+            <h3>🎉 Prochain moment</h3>
+            <div class="event">
+              <div class="event-date"><b>28</b><small>AOÛT</small></div>
+              <div><strong>Journée détente</strong><p>Centre de loisirs · 14:00</p></div>
+            </div>
+            <button class="full-btn" onclick="showEvent()">Je participe 🎊</button>
+          </div>
+
+          <div class="quote-card">
+            <div>“</div>
+            <p>La vie est plus belle quand on la partage avec les bonnes personnes.</p>
+            <span>— BOBO SQUAD</span>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

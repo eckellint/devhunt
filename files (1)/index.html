@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOBO SQUAD — The game never end</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Bruit / texture superposée -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Filtre SVG pour l'effet "peinture qui coule" -->
+<svg width="0" height="0" style="position:absolute">
+  <filter id="drip" x="-20%" y="-20%" width="140%" height="160%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.09" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">BS</span>
+      <span class="brand-text">BOBO<em>SQUAD</em></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#accueil" class="nav-link active" data-link>Accueil</a>
+      <a href="#apropos" class="nav-link" data-link>À propos</a>
+      <a href="#membres" class="nav-link" data-link>Membres</a>
+      <a href="#galerie" class="nav-link" data-link>Galerie</a>
+      <a href="#contact" class="nav-link" data-link>Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">Rejoindre</a>
+
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil" data-reveal>
+  <p class="eyebrow mono">Centre de loisirs — International</p>
+  <h1 class="hero-title">
+    <span class="drip-line">BOBO</span>
+    <span class="drip-line outline">SQUAD</span>
+  </h1>
+  <p class="hero-tagline">« The game never end »</p>
+
+  <div class="hero-actions">
+    <a href="#galerie" class="btn btn-solid">Voir la galerie</a>
+    <a href="#contact" class="btn btn-ghost">Rejoindre le squad</a>
+  </div>
+
+  <div class="stat-bar" id="statBar">
+    <div class="stat">
+      <span class="stat-num mono" data-count="5">0</span>
+      <span class="stat-label">followers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num mono" data-count="4">0</span>
+      <span class="stat-label">suivi(e)s</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num mono" data-count="6">0</span>
+      <span class="stat-label">membres actifs</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num mono" data-count="2024">0</span>
+      <span class="stat-label">année de création</span>
+    </div>
+  </div>
+
+  <a href="#apropos" class="scroll-cue" aria-label="Défiler vers le bas"><span></span></a>
+</section>
+
+<!-- A PROPOS -->
+<section class="about" id="apropos" data-reveal>
+  <div class="section-head">
+    <span class="section-num mono">01</span>
+    <h2>À propos du squad</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="lead">BOBO SQUAD n'est pas juste un groupe, on est une famille . Nés du même école, unis par le même principes, la même devise, le même jeu qui ne s'arrête jamais.</p>
+      <p>Ce qui a commencé comme une bande d'amis qui traînaient après les cours est devenu un vrai collectif : sorties, sports, entraide, et un style reconnaissable entre mille — LA BOBO FAMILY.</p>
+      <ul class="about-list">
+        <li><span class="tag mono">01</span> Loyauté avant tout</li>
+        <li><span class="tag mono">02</span> Le style, c'est la discipline</li>
+        <li><span class="tag mono">03</span> On avance groupé</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <div class="card-row">
+        <span class="mono">STATUT</span>
+        <strong>Centre de loisirs</strong>
+      </div>
+      <div class="card-row">
+        <span class="mono">DEVISE</span>
+        <strong>The game never end</strong>
+      </div>
+      <div class="card-row">
+        <span class="mono">STYLE</span>
+        <strong>Noir &amp; Blanc</strong>
+      </div>
+      <div class="card-row">
+        <span class="mono">BASE</span>
+        <strong>MAHAJANGA</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBRES -->
+<section class="members" id="membres" data-reveal>
+  <div class="section-head">
+    <span class="section-num mono">02</span>
+    <h2>Le squad</h2>
+  </div>
+
+  <div class="members-track" id="membersTrack">
+    <!-- généré en JS -->
+  </div>
+
+  <div class="members-controls">
+    <button class="ctrl" id="prevMember" aria-label="Membre précédent">←</button>
+    <button class="ctrl" id="nextMember" aria-label="Membre suivant">→</button>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gallery" id="galerie" data-reveal>
+  <div class="section-head">
+    <span class="section-num mono">03</span>
+    <h2>Galerie</h2>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="all">Tout</button>
+    <button class="filter" data-filter="rue">Rue</button>
+    <button class="filter" data-filter="squad">Squad</button>
+    <button class="filter" data-filter="event">Events</button>
+  </div>
+
+  <div class="grid" id="galleryGrid"></div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Précédent">←</button>
+  <div class="lb-content" id="lbContent"></div>
+  <button class="lb-next" id="lbNext" aria-label="Suivant">→</button>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" data-reveal>
+  <div class="section-head">
+    <span class="section-num mono">04</span>
+    <h2>Rejoindre le squad</h2>
+  </div>
+
+  <div class="contact-grid">
+    <form class="form" id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Ton nom" autocomplete="name">
+        <span class="error" id="err-name"></span>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="ton@email.com" autocomplete="email">
+        <span class="error" id="err-email"></span>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Pourquoi tu veux rejoindre le squad ?"></textarea>
+        <span class="error" id="err-message"></span>
+      </div>
+      <button type="submit" class="btn btn-solid full">Envoyer</button>
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+
+    <div class="contact-side">
+      <p class="mono small">SUIS-NOUS</p>
+      <div class="social-list">
+        <a href="#" class="social-item">Facebook <span>↗</span></a>
+        <a href="#" class="social-item">Instagram <span>↗</span></a>
+        <a href="#" class="social-item">TikTok <span>↗</span></a>
+      </div>
+      <p class="mono small">CONTACT DIRECT</p>
+      <p class="direct">bobosquad.contact@mail.com</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <span class="brand-text small">BOBO<em>SQUAD</em></span>
+  <p class="mono small">© 2026 BOBO SQUAD — The game never end</p>
+  <button class="to-top" id="toTop" aria-label="Retour en haut">↑</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
